@@ -55,6 +55,7 @@ GEM
     coffee-script-source (1.8.0)
     colorize (0.7.3)
     commonjs (0.2.7)
+    country_select (1.2.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -116,6 +117,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_form (3.0.1)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -152,6 +156,7 @@ DEPENDENCIES
   annotate
   capistrano
   coffee-rails (~> 4.0.0)
+  country_select
   devise
   jbuilder (~> 1.2)
   jquery-rails
@@ -159,6 +164,7 @@ DEPENDENCIES
   rails (= 4.0.11)
   sass-rails (~> 4.0.2)
   sdoc
+  simple_form
   sqlite3
   therubyracer
   turbolinks
