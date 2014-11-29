@@ -19,4 +19,6 @@
 
 class Specie < ActiveRecord::Base
   has_many :specie_images
+  has_many :specie_categories
+  has_many :categories, :through => :specie_cetegories
 end
