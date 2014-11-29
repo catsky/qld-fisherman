@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128110418) do
+ActiveRecord::Schema.define(version: 20141128231703) do
+
+  create_table "specie_images", force: true do |t|
+    t.string   "image_url"
+    t.integer  "specie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "species", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "distribution"
+    t.string   "frequent_misidentifications"
+    t.string   "scientific_name"
+    t.string   "size_and_bag_limits"
+    t.string   "size"
+    t.string   "source_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
