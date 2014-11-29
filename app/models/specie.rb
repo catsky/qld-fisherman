@@ -14,6 +14,7 @@
 #  created_at                  :datetime
 #  updated_at                  :datetime
 #  size_and_possession_limits  :string(255)
+#  descriptions                :text
 #
 
 class Specie < ActiveRecord::Base

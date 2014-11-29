@@ -7,29 +7,30 @@
  <img src="<%= @species.specie_images.first.image_url %>" alt="<%= @species.name %>" />
 </div>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
+      <th class="col-md-2"></th>
       <th></th>
     </tr>
   </thead>
-
   <tbody>
-      <tr>
-        <td>QLD DAFF SOURCE LINK</td>
-        <td><a href="<%= @species.source_url %>">SOURCE LINK</a></td>
-      </tr>
-      <tr>
-        <td>Size<td>
-        <td><%= @species.size %></td>
-      </tr>
-      <tr>
-        <td>Size and bag limits<td>
-        <td><%= @species.size_and_bag_limits || @species.size_and_possession_limits%></td>
-      </tr>
-      
+    <tr>
+      <td><strong>QLD DAFF SOURCE LINK<strong></td>
+      <td><a href="<%= @species.source_url %>">SOURCE LINK</a></td>
+    </tr>
+    <% eval(@species.descriptions).each do |k, v| %>
+    <tr>
+      <td><strong><%= k %><strong></td>
+      <td>
+        <ul>
+        <% v.each do |line| %>
+          <li><%= line %> </li>
+        <% end %>
+      </ul>
+      </td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
 

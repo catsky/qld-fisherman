@@ -37,13 +37,15 @@ def seed_specie_data file_path
     specie = Specie.create!({
         name: specie_data["name"],
         source_url: specie_data["source_url"],
-        description: (desc["Description"] && desc["Description"].join(' || ') if desc.has_key? "Description"),
-        distribution: (desc["Distribution"] && desc["Distribution"].join(' || ') if desc.has_key? "Distribution"),
-        frequent_misidentifications: (desc["Frequent misidentifications"] && desc["Frequent misidentifications"].join(' || ') if desc.has_key? "Frequent misidentifications"), 
-        scientific_name: (desc["Scientific name"] && desc["Scientific name"].join(' || ') if desc.has_key? "Scientific name"),
-        size_and_bag_limits: (desc["Size and bag limits"] && desc["Size and bag limits"].join(' || ') if desc.has_key? "Size and bag limits"),
-        size_and_possession_limits: (desc["Size and possession limits"] && desc["Size and possession limits"].join(' || ') if desc.has_key? "Size and possession limits"),
-        size: (desc["Size"] && desc["Size"].join(' || ') if desc.has_key? "Size")
+        descriptions: desc.to_s,
+        
+        # description: (desc["Description"] && desc["Description"].join("<br>") if desc.has_key? "Description"),
+        # distribution: (desc["Distribution"] && desc["Distribution"].join("<br>") if desc.has_key? "Distribution"),
+        # frequent_misidentifications: (desc["Frequent misidentifications"] && desc["Frequent misidentifications"].join("<br>") if desc.has_key? "Frequent misidentifications"),
+        # scientific_name: (desc["Scientific name"] && desc["Scientific name"].join("<br>") if desc.has_key? "Scientific name"),
+        # size_and_bag_limits: (desc["Size and bag limits"] && desc["Size and bag limits"].join("<br>") if desc.has_key? "Size and bag limits"),
+        # size_and_possession_limits: (desc["Size and possession limits"] && desc["Size and possession limits"].join("<br>") if desc.has_key? "Size and possession limits"),
+        # size: (desc["Size"] && desc["Size"].join("<br>") if desc.has_key? "Size")
         
       })
     
