@@ -9,6 +9,6 @@
 #
 
 class Category < ActiveRecord::Base
-  has_many :specie_categories
-  has_many :species, :through => :specie_cetegories
+  has_many :species_categories
+  has_many :species, through: :species_categories
 end

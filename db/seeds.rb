@@ -21,8 +21,10 @@ def seed_test_data
 end
 
 def seed_species_data
-  Specie.delete_all
-  SpecieImage.delete_all
+  Species.delete_all
+  SpeciesImage.delete_all
+  SpeciesCategory.delete_all
+  Category.delete_all
   
   Dir.glob("res/*.json").each do |file_path|
     puts "xxxxxxxx loading data from #{file_path}"
@@ -33,11 +35,15 @@ end
 def seed_specie_data file_path
   YAML.load(File.read(file_path)).each do |specie_data|
     next if !specie_data.respond_to?'has_key?'
+    
+    category = get_category file_path
+    
     desc = specie_data["descriptions"] if specie_data.has_key? "descriptions"
-    specie = Specie.create!({
+    specie = Species.create!({
         name: specie_data["name"],
         source_url: specie_data["source_url"],
         descriptions: desc.to_s,
+        categories: [category]
         
         # description: (desc["Description"] && desc["Description"].join("<br>") if desc.has_key? "Description"),
         # distribution: (desc["Distribution"] && desc["Distribution"].join("<br>") if desc.has_key? "Distribution"),
@@ -50,12 +56,23 @@ def seed_specie_data file_path
       })
     
     specie_data["image_url"].each do |image|
-      SpecieImage.find_or_create_by!(image_url: image, specie_id: specie.id)
+      SpeciesImage.find_or_create_by!(image_url: image, species_id: specie.id)
     end
-
+    
   end
 end
 
+def get_category file_path
+  if /freshwater/ =~ file_path
+    c = Category.find_or_create_by!(name: 'freshwater')
+  elsif /inshore-estuarine/ =~ file_path
+    c = Category.find_or_create_by!(name: 'inshore-estuarine')
+  elsif /reef-fish/ =~ file_path
+    c = Category.find_or_create_by!(name: 'reef')
+  elsif /shark/ =~ file_path
+    c = Category.find_or_create_by!(name: 'shark')
+  end
+end
 
 
 

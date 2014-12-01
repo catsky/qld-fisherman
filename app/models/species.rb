@@ -17,8 +17,8 @@
 #  descriptions                :text
 #
 
-class Specie < ActiveRecord::Base
-  has_many :specie_images
-  has_many :specie_categories
-  has_many :categories, :through => :specie_cetegories
+class Species < ActiveRecord::Base
+  has_many :species_images
+  has_many :species_categories
+  has_many :categories, through: :species_categories
 end

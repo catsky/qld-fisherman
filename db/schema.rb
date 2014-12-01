@@ -11,24 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129124459) do
+ActiveRecord::Schema.define(version: 20141201104045) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "specie_categories", force: true do |t|
-    t.integer  "specie_id"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "specie_images", force: true do |t|
-    t.string   "image_url"
-    t.integer  "specie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +32,20 @@ ActiveRecord::Schema.define(version: 20141129124459) do
     t.datetime "updated_at"
     t.string   "size_and_possession_limits"
     t.text     "descriptions"
+  end
+
+  create_table "species_categories", force: true do |t|
+    t.integer  "species_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "species_images", force: true do |t|
+    t.string   "image_url"
+    t.integer  "species_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

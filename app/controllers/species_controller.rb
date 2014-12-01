@@ -4,7 +4,7 @@ class SpeciesController < ApplicationController
   # GET /species
   # GET /species.json
   def index
-    @species = Specie.all
+    @species = Species.all
   end
 
   # GET /species/1
@@ -14,7 +14,7 @@ class SpeciesController < ApplicationController
 
   # GET /species/new
   def new
-    @species = Specie.new
+    @species = Species.new
   end
 
   # GET /species/1/edit
@@ -24,7 +24,7 @@ class SpeciesController < ApplicationController
   # POST /species
   # POST /species.json
   def create
-    @species = Specie.new(species_params)
+    @species = Species.new(species_params)
 
     respond_to do |format|
       if @species.save
@@ -64,7 +64,7 @@ class SpeciesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_species
-      @species = Specie.find(params[:id])
+      @species = Species.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
