@@ -48,9 +48,10 @@
         <a class="navbar-brand" href="#">QldFisherman</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <% @categories.each do |category| %>
+            <li><%= link_to "#{category.name}", category  %></li>
+            <% end %>
+            
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </div>

@@ -4,6 +4,7 @@ class SpeciesController < ApplicationController
   # GET /species
   # GET /species.json
   def index
+    @categories = Category.all
     @species = Species.all
   end
 

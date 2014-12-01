@@ -2,6 +2,7 @@ QldFisherman::Application.routes.draw do
   devise_for :users
   resources :species
   resources :species_images
+  resources :categories
   get "pages/home"
   root to: "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
