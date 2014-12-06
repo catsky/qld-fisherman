@@ -6,6 +6,10 @@ class SpeciesController < ApplicationController
   def index
     @categories = Category.all
     @species = Species.all
+    
+    @q = Species.search(params[:q])
+    puts "xxxxxxxxxx#{@q}"
+    @species = @q.result(distinct: true) if @q
   end
 
   # GET /species/1

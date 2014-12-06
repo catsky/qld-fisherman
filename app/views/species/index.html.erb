@@ -1,5 +1,12 @@
 <h1>Listing species</h1>
+<%= search_form_for @q do |f| %>
 
+  <%= f.label :name_or_descriptions_cont_any %>
+  <%= f.search_field :name_or_descriptions_cont_any %>
+
+  <%= f.submit %>
+<% end %>
+<div class="pull-right"><%= sort_link(@q, :name, "Sort by Name") %></div>
 <table class="table">
   <thead>
     <tr>
