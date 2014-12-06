@@ -44,7 +44,7 @@ def seed_specie_data file_path
         source_url: specie_data["source_url"],
         descriptions: desc.to_s,
         categories: [category]
-        
+
         # description: (desc["Description"] && desc["Description"].join("<br>") if desc.has_key? "Description"),
         # distribution: (desc["Distribution"] && desc["Distribution"].join("<br>") if desc.has_key? "Distribution"),
         # frequent_misidentifications: (desc["Frequent misidentifications"] && desc["Frequent misidentifications"].join("<br>") if desc.has_key? "Frequent misidentifications"),
@@ -52,9 +52,9 @@ def seed_specie_data file_path
         # size_and_bag_limits: (desc["Size and bag limits"] && desc["Size and bag limits"].join("<br>") if desc.has_key? "Size and bag limits"),
         # size_and_possession_limits: (desc["Size and possession limits"] && desc["Size and possession limits"].join("<br>") if desc.has_key? "Size and possession limits"),
         # size: (desc["Size"] && desc["Size"].join("<br>") if desc.has_key? "Size")
-        
+
       })
-    
+
     specie_data["image_url"].each do |image|
       SpeciesImage.find_or_create_by!(image_url: image, species_id: specie.id)
     end
