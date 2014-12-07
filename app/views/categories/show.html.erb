@@ -13,7 +13,7 @@
     <% @species.each do |specie| %>
       <tr>
         <td><%= specie.name %></td>
-        <td><img src="<%= specie.species_images.first.image_url %>" alt="<%= specie.name %>"</td>
+        <td><img class='img-responsive' src="<%= specie.species_images.first.image_url %>" alt="<%= specie.name %>"</td>
         <td><%= link_to 'Show', specie %></td>
       </tr>
     <% end %>

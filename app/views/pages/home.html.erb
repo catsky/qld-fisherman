@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% content_for :view_specific_css do %>
+    <%= stylesheet_link_tag "pages" %>
+<% end %>
+
+<h2>Welcome to QLD Fisherman!</h2>
+<p></p>
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :name_or_descriptions_cont, "Fish Finder: "%>
+  <%= f.search_field :name_or_descriptions_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<%= stylesheet_link_tag "/assets/custom/background_image" %>
