@@ -5,10 +5,18 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     if params[:search].present?
-      @locations = Location.near(params[:search], 50, :order => :distance)
+      @locations = Location.near(params[:search], 50, order: 'distance')
     else
       @locations = Location.all
     end
+    
+    @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+      marker.lat location.latitude
+      marker.lng location.longitude 
+      marker.title location.park_name
+      marker.infowindow location.address
+    end
+    puts @hash.to_json
   end
 
   # GET /locations/1
