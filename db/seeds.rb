@@ -120,5 +120,5 @@ end
 
 
 
-# seed_test_data
+seed_test_data
 seed_fish_platform_locations
