@@ -1,8 +1,11 @@
 QldFisherman::Application.routes.draw do
+  resources :locations
+
   devise_for :users
   resources :species
   resources :species_images
   resources :categories
+  resources :locations
   get "pages/home"
   get "tests/home"
   root to: "pages#home"

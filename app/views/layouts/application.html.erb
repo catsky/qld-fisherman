@@ -50,8 +50,10 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <% all_category.each do | category |%>
-              <li><%= link_to category.name, category %></li>
+              <li><%= link_to category.name.humanize, category %></li>
             <% end %>
+            
+            <li><%= link_to "Fish Spot", locations_path %></li>
             
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           </ul>
@@ -62,6 +64,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
+          <h3>***ONLY FOR STUDY***</h3>
           <%= bootstrap_flash %>
           <%= yield %>
         </div>

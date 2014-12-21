@@ -8,7 +8,7 @@
 
 def seed_test_data
   # seed login user
-  if User.find_by(email: "web@kvl.com.au").nil?
+  if User.find_by(email: 'web@kvl.com.au').nil?
     @user = User.create!({
       email: "web@kvl.com.au", 
       password: "password1234", 
@@ -74,6 +74,51 @@ def get_category file_path
   end
 end
 
+def seed_fish_platform_locations
+  locations = [
+    {
+      suburb: 'Bald Hills', 
+      park_name: 'Tinchi Tamba Wetlands', 
+      address: 'Wyampa Road, Bald Hills'
+    },
+    {
+      suburb: 'Hamilton', 
+      park_name: 'Cameron Rocks Reserve', 
+      address: 'Kingsford Smith Drive, Hamilton'
+    },
+    {
+      suburb: 'Karana Downs', 
+      park_name: 'Kookaburra Park - West', 
+      address: 'Caringal Drive, Karana Downs'
+    },
+    {
+      suburb: "Morningside", 
+      park_name: 'Colmslie Recreatio Reserve', 
+      address: 'Lytton Road, Morningside'
+    },
+    {
+      suburb: 'Nudgee Beach', 
+      park_name: 'Tuckeroo Park', 
+      address: 'Nudgee Road, Nudgee Beach'
+    },
+    {
+      suburb: 'Ransome', 
+      park_name: 'Chelsea Road Park (nos. 399-551)', 
+      address: '399 Chelsea Road, Ransome',
+      comments: 'north of Rickett Road Bridge'
+    },
+    {
+      suburb: 'Sandgate', 
+      park_name: 'Sandgate Foreshores Park', 
+      address: 'Flinders Parade, Sandgate'
+    },
+  ]
+  locations.each do |location|
+    Location.create!location
+  end
+end
 
 
-seed_test_data
+
+# seed_test_data
+seed_fish_platform_locations
