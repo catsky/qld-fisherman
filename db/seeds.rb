@@ -8,6 +8,7 @@
 
 def seed_test_data
   # seed login user
+  puts '=> seed login user...'
   if User.find_by(email: 'web@kvl.com.au').nil?
     @user = User.create!({
       email: "web@kvl.com.au", 
@@ -26,6 +27,7 @@ def seed_species_data
   SpeciesCategory.delete_all
   Category.delete_all
   
+  puts '=> seed Species...'
   Dir.glob("res/*.json").each do |file_path|
     puts "xxxxxxxx loading data from #{file_path}"
     seed_specie_data file_path
@@ -75,6 +77,8 @@ def get_category file_path
 end
 
 def seed_fish_platform_locations
+  Location.delete_all
+  puts '=> seed Location...'
   locations = [
     {
       suburb: 'Bald Hills', 
@@ -112,6 +116,11 @@ def seed_fish_platform_locations
       park_name: 'Sandgate Foreshores Park', 
       address: 'Flinders Parade, Sandgate'
     },
+    {
+      suburb: 'Beenleigh', 
+      park_name: 'Logan River Parklands', 
+      address: 'Logan River Parklands, Blackbird St'
+    },
   ]
   locations.each do |location|
     Location.create!location
@@ -119,6 +128,7 @@ def seed_fish_platform_locations
 end
 
 
-
+puts 'start seeding...'
 seed_test_data
 seed_fish_platform_locations
+puts 'seeding completed'

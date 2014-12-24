@@ -4,6 +4,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
+    google_map_base_url = 'https://www.google.com.au/maps/place/'
     if params[:search].present?
       @locations = Location.near(params[:search], 50, order: 'distance')
     else
@@ -13,8 +14,10 @@ class LocationsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude 
-      marker.title location.park_name
-      marker.infowindow location.address
+      # marker.title location.park_name
+      google_map_redirect_url = google_map_base_url + "#{location.address}"
+      marker.infowindow location.address + "<br>" \
+            + "<a target='blank' href='#{google_map_redirect_url}'> <strong>View On Google Maps</strong> </a>"
     end
     puts @hash.to_json
   end
