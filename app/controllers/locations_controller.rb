@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
     end
     
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+      puts location.attributes
       marker.lat location.latitude
       marker.lng location.longitude 
       # marker.title location.park_name

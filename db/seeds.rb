@@ -83,7 +83,8 @@ def seed_fish_platform_locations
     {
       suburb: 'Bald Hills', 
       park_name: 'Tinchi Tamba Wetlands', 
-      address: 'Wyampa Road, Bald Hills'
+      address: 'Wyampa Road, Bald Hills',
+      popular_species: 'Bream, Blue swimmer and mud crabs'
     },
     {
       suburb: 'Hamilton', 
@@ -98,7 +99,8 @@ def seed_fish_platform_locations
     {
       suburb: "Morningside", 
       park_name: 'Colmslie Recreatio Reserve', 
-      address: 'Lytton Road, Morningside'
+      address: 'Lytton Road, Morningside',
+      popular_species: 'Blue Swimmer, Mub crabs'
     },
     {
       suburb: 'Nudgee Beach', 
@@ -119,8 +121,27 @@ def seed_fish_platform_locations
     {
       suburb: 'Beenleigh', 
       park_name: 'Logan River Parklands', 
-      address: 'Logan River Parklands, Blackbird St'
+      address: 'Logan River Parklands, Blackbird St',
+      popular_species: 'Catfish, Mud crabs'
     },
+    {
+      suburb: 'Brunswick Heads', 
+      park_name: 'Torakina Park', 
+      address: 'Torakina Park, Brunswick Heads',
+      popular_species: 'Big Bream; Blue swimmer and mud crabs(in river)'
+    },
+    {
+      suburb: 'Wivenhoe Pocket', 
+      park_name: 'Lake Wivenhoe Information Center', 
+      address: 'The Spillway Common Lookout',
+      popular_species: 'Australian Bass, Catfish, Yellowbelly, Silver Perch, Saratoga & Mary River Cod.'
+    },
+    {
+      suburb: 'Great Sandy Strait, QLD 4655', 
+      park_name: 'Urangan Pier 800m long Jetty', 
+      address: 'The Pier, Great Sandy Strait, Harvey Bay',
+      popular_species: 'Whiting, bream, flathead, reef fish and pelagics including giant trevally, tuna and mackerel.'
+    }
   ]
   locations.each do |location|
     Location.create!location
