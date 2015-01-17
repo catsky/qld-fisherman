@@ -141,7 +141,13 @@ def seed_fish_platform_locations
       park_name: 'Urangan Pier 800m long Jetty', 
       address: 'The Pier, Great Sandy Strait, Harvey Bay',
       popular_species: 'Whiting, bream, flathead, reef fish and pelagics including giant trevally, tuna and mackerel.'
-    }
+    },
+    {
+      suburb: 'Redland Bay QLD 4165', 
+      park_name: 'Bay Islands Vehicle Ferry', 
+      address: '1 Weinam Street Redland Bay QLD 4165',
+      popular_species: 'snapper, squire, flathead, whiting (great in winter), bream, tailor and sometimes tuna and mackerel.'
+    },
   ]
   locations.each do |location|
     Location.create!location
