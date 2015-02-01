@@ -148,6 +148,12 @@ def seed_fish_platform_locations
       address: '1 Weinam Street Redland Bay QLD 4165',
       popular_species: 'snapper, squire, flathead, whiting (great in winter), bream, tailor and sometimes tuna and mackerel.'
     },
+    {
+      suburb: 'East Brisane', 
+      park_name: 'Near Health Park, East Brisane', 
+      address: '184 lytton road east Brisbane QLD 4169',
+      popular_species: 'salmon'
+    },
   ]
   locations.each do |location|
     Location.create!location
@@ -159,3 +165,6 @@ puts 'start seeding...'
 seed_test_data
 seed_fish_platform_locations
 puts 'seeding completed'
+
+# DAM
+# Bill Gunn Dam, Laidley (Lake Dyer)Bjelke Petersen Dam, MurgonBoondooma Dam, ProstonBorumba Dam, ImbilBurdekin Falls Dam, RavenswoodCallide Dam, BiloelaCania Dam, MontoConnolly Dam, WarwickCooby Dam, ToowoombaCoolmunda Dam, InglewoodCressbrook Dam, ToowoombaEungella Dam, EungellaFairbairn Dam, EmeraldFred Haigh Dam, Gin Gin (Lake Monduran)Glenlyon Dam, StanthorpeGordonbrook Dam, KingaroyIsis Balancing Storage, Bundaberg (Lake Gregory)Kinchant Dam, MackayLake MacDonald Dam, CooroyLenthalls Dam, HowardLeslie Dam, WarwickMaroon Dam, BoonahMoogerah Dam, KalbarNorth Pine Dam, Brisbane (Lake Samsonvale)Peter Faust Dam, ProserpineSomerset Dam, EskStorm King Dam, StanthorpeTeemburra Dam, EungellaTheresa Creek Dam, ClermontTinaroo Falls Dam, AthertonWivenhoe Dam, FernvaleWuruma Dam, Eidsvold
