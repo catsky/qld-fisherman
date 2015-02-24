@@ -11,13 +11,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230003702) do
+ActiveRecord::Schema.define(version: 20150224112955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "addresses", force: true do |t|
+    t.string   "type"
+    t.string   "street"
+    t.string   "park"
+    t.string   "postcode"
+    t.string   "suburb"
+    t.string   "state"
+    t.string   "country"
+    t.boolean  "visible"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attachables", force: true do |t|
+    t.string   "attachable_type"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "title"
+    t.boolean  "file_processing"
+    t.string   "file_fingerprint"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "moment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "emails", force: true do |t|
+    t.string   "email_address"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "favourites", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "moment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,11 +91,44 @@ ActiveRecord::Schema.define(version: 20141230003702) do
     t.text     "popular_species"
   end
 
+  create_table "messages", force: true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moment_stars", force: true do |t|
+    t.integer  "moment_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "momoents", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.integer  "address_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "names", force: true do |t|
     t.string   "location"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phones", force: true do |t|
+    t.string   "number"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "settings", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

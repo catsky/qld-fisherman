@@ -1,0 +1,2 @@
+module MomentStarsHelper
+end

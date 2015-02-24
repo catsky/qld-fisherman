@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Moment:</strong>
+  <%= @moment_star.moment_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @moment_star.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_moment_star_path(@moment_star) %> |
+<%= link_to 'Back', moment_stars_path %>

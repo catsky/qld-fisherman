@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attachable type:</strong>
+  <%= @attachable.attachable_type %>
+</p>
+
+<p>
+  <strong>File file name:</strong>
+  <%= @attachable.file_file_name %>
+</p>
+
+<p>
+  <strong>File content type:</strong>
+  <%= @attachable.file_content_type %>
+</p>
+
+<p>
+  <strong>File file size:</strong>
+  <%= @attachable.file_file_size %>
+</p>
+
+<p>
+  <strong>File updated at:</strong>
+  <%= @attachable.file_updated_at %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @attachable.title %>
+</p>
+
+<p>
+  <strong>File processing:</strong>
+  <%= @attachable.file_processing %>
+</p>
+
+<p>
+  <strong>File fingerprint:</strong>
+  <%= @attachable.file_fingerprint %>
+</p>
+
+<%= link_to 'Edit', edit_attachable_path(@attachable) %> |
+<%= link_to 'Back', attachables_path %>

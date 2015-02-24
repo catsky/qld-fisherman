@@ -1,4 +1,26 @@
 QldFisherman::Application.routes.draw do
+  resources :comments
+
+  resources :moment_stars
+
+  resources :attachables
+
+  resources :addresses
+
+  resources :messages
+
+  resources :momoents
+
+  resources :favourites
+
+  resources :phones
+
+  resources :emails
+
+  resources :friendships
+
+  resources :settings
+
   resources :locations
 
   devise_for :users

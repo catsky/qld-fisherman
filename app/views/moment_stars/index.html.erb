@@ -1,0 +1,29 @@
+<h1>Listing moment_stars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Moment</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moment_stars.each do |moment_star| %>
+      <tr>
+        <td><%= moment_star.moment_id %></td>
+        <td><%= moment_star.user_id %></td>
+        <td><%= link_to 'Show', moment_star %></td>
+        <td><%= link_to 'Edit', edit_moment_star_path(moment_star) %></td>
+        <td><%= link_to 'Destroy', moment_star, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Moment star', new_moment_star_path %>

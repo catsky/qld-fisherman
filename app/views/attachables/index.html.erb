@@ -1,0 +1,41 @@
+<h1>Listing attachables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attachable type</th>
+      <th>File file name</th>
+      <th>File content type</th>
+      <th>File file size</th>
+      <th>File updated at</th>
+      <th>Title</th>
+      <th>File processing</th>
+      <th>File fingerprint</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attachables.each do |attachable| %>
+      <tr>
+        <td><%= attachable.attachable_type %></td>
+        <td><%= attachable.file_file_name %></td>
+        <td><%= attachable.file_content_type %></td>
+        <td><%= attachable.file_file_size %></td>
+        <td><%= attachable.file_updated_at %></td>
+        <td><%= attachable.title %></td>
+        <td><%= attachable.file_processing %></td>
+        <td><%= attachable.file_fingerprint %></td>
+        <td><%= link_to 'Show', attachable %></td>
+        <td><%= link_to 'Edit', edit_attachable_path(attachable) %></td>
+        <td><%= link_to 'Destroy', attachable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attachable', new_attachable_path %>

@@ -1,0 +1,31 @@
+<h1>Listing momoents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Message</th>
+      <th>Address</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @momoents.each do |momoent| %>
+      <tr>
+        <td><%= momoent.user_id %></td>
+        <td><%= momoent.message_id %></td>
+        <td><%= momoent.address_id %></td>
+        <td><%= link_to 'Show', momoent %></td>
+        <td><%= link_to 'Edit', edit_momoent_path(momoent) %></td>
+        <td><%= link_to 'Destroy', momoent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Momoent', new_momoent_path %>
