@@ -37,4 +37,5 @@ class User < ActiveRecord::Base
   has_many :phones, as: :contactable
   has_many :photes, as: :attachable
   has_many :addresses, as: :addressable
+  has_many :moments
 end
