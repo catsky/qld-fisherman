@@ -1,0 +1,31 @@
+<h1>Listing moments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Message</th>
+      <th>Address</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moments.each do |moment| %>
+      <tr>
+        <td><%= moment.user_id %></td>
+        <td><%= moment.message_id %></td>
+        <td><%= moment.address_id %></td>
+        <td><%= link_to 'Show', moment %></td>
+        <td><%= link_to 'Edit', edit_moment_path(moment) %></td>
+        <td><%= link_to 'Destroy', moment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Moment', new_moment_path %>

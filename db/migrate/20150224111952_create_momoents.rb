@@ -1,6 +1,6 @@
-class CreateMomoents < ActiveRecord::Migration
+class CreateMoments < ActiveRecord::Migration
   def change
-    create_table :momoents do |t|
+    create_table :moments do |t|
       t.integer :user_id
       t.integer :message_id
       t.integer :address_id

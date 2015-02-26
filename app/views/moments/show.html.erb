@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @moment.user_id %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @moment.message_id %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @moment.address_id %>
+</p>
+
+<%= link_to 'Edit', edit_moment_path(@moment) %> |
+<%= link_to 'Back', moments_path %>

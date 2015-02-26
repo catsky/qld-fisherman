@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: momoents
+# Table name: moments
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
@@ -10,8 +10,8 @@
 #  updated_at :datetime
 #
 
-class Momoent < ActiveRecord::Base
-  belong_to :user
+class Moment < ActiveRecord::Base
+  belongs_to :user
   has_many :favourites
   has_many :moment_stars
   has_many :comments

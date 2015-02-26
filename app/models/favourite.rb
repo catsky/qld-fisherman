@@ -10,6 +10,6 @@
 #
 
 class Favourite < ActiveRecord::Base
-  belong_to :user
-  belong_to :moment
+  belongs_to :user
+  belongs_to :moment
 end

@@ -9,7 +9,7 @@ QldFisherman::Application.routes.draw do
 
   resources :messages
 
-  resources :momoents
+  resources :moments
 
   resources :favourites
 

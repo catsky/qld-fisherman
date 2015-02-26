@@ -49,13 +49,37 @@
         <a class="navbar-brand" href="/">QldFisherman</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <% all_category.each do | category |%>
-              <li><%= link_to category.name.humanize, category %></li>
+            <li><%= link_to 'Discovery', moments_path%></li>
+            <li><%= link_to 'Friends', friendships_path%></li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fish Kit <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Tide</a></li>
+                <li><a href="#">Rule</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><li><%= link_to 'Spiece(QLD)', categories_path %></li> </a></li>
+                <li><%= link_to 'Fish Spots(QLD)', locations_path %></li>
+              </ul>
+            </li>
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in?%>   
+             <li class="dropdown" id="user_menu">
+                <a href="#user_menu" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= "#{current_user.email} #{image_tag('http://www.gravatar.com/avatar/55c4767bcfcbcabd77ae6cf398b953ec?s=26&amp;d=mm')}".html_safe%>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="first"></li>
+                  <li><a href="/account/edit">Album</a></li>
+                  <li><a href="/notes">Favoriate</a></li>
+                  <li><a href="/catsky/favorites">Settings</a></li>
+                  <li><div class="divider"></div></li>
+                  <li class="last"><%=link_to "Logout", destroy_user_session_path, :method => :delete %></ul>
+              </li>
             <% end %>
-            
-            <li><%= link_to "Fish Spot", locations_path %></li>
-            
-            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </div>
       </div>
