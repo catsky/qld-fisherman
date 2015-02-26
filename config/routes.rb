@@ -29,6 +29,7 @@ QldFisherman::Application.routes.draw do
   resources :categories
   resources :locations
   get "pages/home"
+  get "pages/test"
   get "tests/home"
   root to: "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
