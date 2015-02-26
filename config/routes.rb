@@ -23,7 +23,7 @@ QldFisherman::Application.routes.draw do
 
   resources :locations
 
-  devise_for :users
+    devise_for :users
   resources :species
   resources :species_images
   resources :categories
