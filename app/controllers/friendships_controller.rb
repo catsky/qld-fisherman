@@ -24,7 +24,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = Friendship.new(friendship_params)
+    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
 
     respond_to do |format|
       if @friendship.save
@@ -64,7 +64,7 @@ class FriendshipsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_friendship
-      @friendship = Friendship.find(params[:id])
+      @friendship = current_user.friendships.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
