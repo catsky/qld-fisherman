@@ -15,4 +15,9 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require gmaps/google
+//= require moxie
+//= require plupload.dev
+//= require plupload/i18n/en
+//= require plupload.settings
+//= require jquery.plupload.queue
 //= require_tree .

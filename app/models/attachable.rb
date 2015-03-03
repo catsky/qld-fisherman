@@ -13,8 +13,12 @@
 #  file_fingerprint  :string(255)
 #  created_at        :datetime
 #  updated_at        :datetime
+#  attachable_id     :integer
 #
 
 class Attachable < ActiveRecord::Base
   belongs_to :attachable, polymorphic: true
+  
+  has_attached_file :file
+  
 end

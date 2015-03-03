@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: file_uploads
+#
+#  id                      :integer          not null, primary key
+#  attachment_file_name    :string(255)
+#  attachment_content_type :string(255)
+#  attachment_file_size    :integer
+#  attachment_updated_at   :datetime
+#  file_upload_batch_id    :integer
+#  type                    :string(255)
+#  status                  :string(255)
+#  created_at              :datetime
+#  updated_at              :datetime
+#  media_type              :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attachment_file_name: MyString
+  attachment_content_type: MyString
+  attachment_file_size: 1
+  attachment_updated_at: 2015-03-02 22:24:54
+  file_upload_batch_id: 1
+  type: 
+  status: MyString
+
+two:
+  attachment_file_name: MyString
+  attachment_content_type: MyString
+  attachment_file_size: 1
+  attachment_updated_at: 2015-03-02 22:24:54
+  file_upload_batch_id: 1
+  type: 
+  status: MyString

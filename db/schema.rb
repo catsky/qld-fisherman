@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226110827) do
+ActiveRecord::Schema.define(version: 20150302123939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150226110827) do
     t.string   "file_fingerprint"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "attachable_id"
   end
 
   create_table "categories", force: true do |t|
@@ -70,6 +71,19 @@ ActiveRecord::Schema.define(version: 20150226110827) do
     t.integer  "moment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "file_uploads", force: true do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.integer  "file_upload_batch_id"
+    t.string   "type"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "media_type"
   end
 
   create_table "friendships", force: true do |t|

@@ -17,5 +17,5 @@ class Moment < ActiveRecord::Base
   has_many :comments
   has_one :message
   has_one :address, as: :addressable
-  has_many :photos, as: :attachable
+  has_many :photos, class_name: "Attachable", as: :attachable
 end
