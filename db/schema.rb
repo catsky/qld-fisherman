@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302123939) do
+ActiveRecord::Schema.define(version: 20150304104715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20150302123939) do
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "addressable_type"
+    t.integer  "addressable_id"
   end
 
   create_table "attachables", force: true do |t|
@@ -109,6 +111,8 @@ ActiveRecord::Schema.define(version: 20150302123939) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "messagable_type"
+    t.integer  "messagable_id"
   end
 
   create_table "moment_stars", force: true do |t|
@@ -120,8 +124,6 @@ ActiveRecord::Schema.define(version: 20150302123939) do
 
   create_table "moments", force: true do |t|
     t.integer  "user_id"
-    t.integer  "message_id"
-    t.integer  "address_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

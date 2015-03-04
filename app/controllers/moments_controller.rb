@@ -25,7 +25,7 @@ class MomentsController < ApplicationController
   # POST /moments.json
   def create
     @moment = Moment.new(moment_params)
-
+    
     respond_to do |format|
       if @moment.save
         format.html { redirect_to @moment, notice: 'Moment was successfully created.' }
@@ -69,6 +69,6 @@ class MomentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def moment_params
-      params.require(:moment).permit(:user_id, :message_id, :address_id)
+      params.require(:moment).permit!
     end
 end

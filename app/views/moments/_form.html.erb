@@ -1,12 +1,17 @@
 <%= simple_form_for(@moment) do |f| %>
+ 
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :message_id %>
-    <%= f.input :address_id %>
-    <%= f.simple_fields_for :photos do |s| %>
-      <%= f.input s.input :file%>
+    <%= f.input :created_at%>
+    <%= f.simple_fields_for :message_attributes do |m|%>
+      <%= m.input :content %>
     <% end %>
+    
+    <%= f.simple_fields_for :address_attributes do |a| %>
+      <%= a.input :street %>
+    <% end %>
+    
   </div>
 
   <div class="form-actions">

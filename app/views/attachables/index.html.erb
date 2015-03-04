@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Attachable type</th>
       <th>File file name</th>
       <th>File content type</th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @attachables.each do |attachable| %>
       <tr>
+        <td><%= image_tag attachable.file.url(:thumbnail_fit)%></td>
         <td><%= attachable.attachable_type %></td>
         <td><%= attachable.file_file_name %></td>
         <td><%= attachable.file_content_type %></td>

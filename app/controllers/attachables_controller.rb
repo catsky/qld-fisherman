@@ -24,11 +24,11 @@ class AttachablesController < ApplicationController
   # POST /attachables
   # POST /attachables.json
   def create
-    @attachable = Attachable.new(attachable_params)
-
+    return render(status: :not_acceptable) unless params.has_key?(:file)
+    @attachable = Attachable.new(file: attachable_params)
     respond_to do |format|
       if @attachable.save
-        format.html { redirect_to @attachable, notice: 'Attachable was successfully created.' }
+        format.html { redirect_to @attachable, notice: 'Attachable created was successfully created.' }
         format.json { render action: 'show', status: :created, location: @attachable }
       else
         format.html { render action: 'new' }
@@ -69,6 +69,11 @@ class AttachablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachable_params
-      params.require(:attachable).permit(:attachable_type, :file_file_name, :file_content_type, :file_file_size, :file_updated_at, :title, :file_processing, :file_fingerprint)
+      if params[:file]
+        params.require(:file)
+      else
+        params.require(:attachable).permit!
+      end
+      
     end
 end

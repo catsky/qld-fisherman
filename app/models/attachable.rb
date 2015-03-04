@@ -19,6 +19,7 @@
 class Attachable < ActiveRecord::Base
   belongs_to :attachable, polymorphic: true
   
-  has_attached_file :file
+  has_attached_file :file, CREDENTIALS[:paperclip]
+  do_not_validate_attachment_file_type :fil
   
 end

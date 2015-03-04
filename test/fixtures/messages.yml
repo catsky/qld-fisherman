@@ -2,10 +2,12 @@
 #
 # Table name: messages
 #
-#  id         :integer          not null, primary key
-#  content    :text
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  content         :text
+#  created_at      :datetime
+#  updated_at      :datetime
+#  messagable_type :string(255)
+#  messagable_id   :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

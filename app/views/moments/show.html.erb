@@ -1,18 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @moment.user_id %>
-</p>
-
-<p>
   <strong>Message:</strong>
-  <%= @moment.message_id %>
+  <%= @moment.message.try(:content) %>
 </p>
 
 <p>
   <strong>Address:</strong>
-  <%= @moment.address_id %>
+  <%= @moment.address.try(:street) %>
 </p>
 
 <%= link_to 'Edit', edit_moment_path(@moment) %> |
