@@ -1,8 +1,9 @@
 <h1>Listing moments</h1>
 
-<table>
+<table class='table table-striped'>
   <thead>
     <tr>
+      <th>Photo</th>
       <th>User</th>
       <th>Message</th>
       <th>Address</th>
@@ -14,6 +15,14 @@
   <tbody>
     <% @moments.each do |moment| %>
       <tr>
+        <td>
+        <% if moment.photos.first %>
+          <%= responsive_image_tag moment.primary_photo_url(:thumbnail_fit), 'full-width' %>
+        <% else %>
+          <%= responsive_image_tag '/files/thumbnail_fit/missing.png', 'full-width' %>
+        <% end %>
+        </td>
+        
         <td><%= moment.try(:message).try(:content) %></td>
         <td><%= moment.try(:address).try(:street) %></td>
         <td><%= link_to 'Show', moment %></td>

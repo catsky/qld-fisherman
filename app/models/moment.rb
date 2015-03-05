@@ -20,4 +20,10 @@ class Moment < ActiveRecord::Base
   accepts_nested_attributes_for :address
   
   has_many :photos, class_name: "Attachable", as: :attachable
+
+  
+  def primary_photo_url(style = nil, fallback = nil)
+    style ||= :thumbnail_fill
+    photos.first.try(:file).try(:url, style) || fallback || "/files/#{style}/missing.png"
+  end
 end
