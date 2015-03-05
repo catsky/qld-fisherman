@@ -117,6 +117,7 @@
         UploadComplete: function(up, files) {
           // Called when all files are either uploaded or failed
           console.log('[UploadComplete]');
+          $("#new_moment").closest("form").submit();
         },
 
         Destroy: function(up) {

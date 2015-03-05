@@ -28,7 +28,8 @@ QldFisherman::Application.routes.draw do
   resources :species
   resources :species_images
   resources :categories
-  resources :locations  get "pages/home"
+  resources :locations  
+  get "pages/home"
   get "pages/test"
   get "tests/home"
   root to: "pages#home"
