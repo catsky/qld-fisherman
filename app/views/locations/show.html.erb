@@ -1,37 +1,31 @@
-<p>
-  <strong>Suburb:</strong>
-  <%= @location.suburb %>
-</p>
+<%- model_class = Location -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Park Name:</strong>
-  <%= @location.park_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @location.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
+  <dd><%= @location.latitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
+  <dd><%= @location.longitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:suburb) %>:</strong></dt>
+  <dd><%= @location.suburb %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:park_name) %>:</strong></dt>
+  <dd><%= @location.park_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:comments) %>:</strong></dt>
+  <dd><%= @location.comments %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:popular_species) %>:</strong></dt>
+  <dd><%= @location.popular_species %></dd>
+</dl>
 
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @location.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @location.longitude %>
-</p>
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
-
-
-<h3>Nearby locations (&lt;10 KM)</h3>
-<ul>
-<% for location in @location.nearbys(10) %>
-  <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> km)</li>
-<% end %>
-</ul>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              locations_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_location_path(@location), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              location_path(@location),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

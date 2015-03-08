@@ -1,49 +1,41 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Address -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Street:</strong>
-  <%= @address.street %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
+  <dd><%= @address.type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:street) %>:</strong></dt>
+  <dd><%= @address.street %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:park) %>:</strong></dt>
+  <dd><%= @address.park %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:postcode) %>:</strong></dt>
+  <dd><%= @address.postcode %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:suburb) %>:</strong></dt>
+  <dd><%= @address.suburb %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @address.state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @address.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:visible) %>:</strong></dt>
+  <dd><%= @address.visible %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
+  <dd><%= @address.latitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
+  <dd><%= @address.longitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:addressable_type) %>:</strong></dt>
+  <dd><%= @address.addressable_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:addressable_id) %>:</strong></dt>
+  <dd><%= @address.addressable_id %></dd>
+</dl>
 
-<p>
-  <strong>Park:</strong>
-  <%= @address.park %>
-</p>
-
-<p>
-  <strong>Postcode:</strong>
-  <%= @address.postcode %>
-</p>
-
-<p>
-  <strong>Suburb:</strong>
-  <%= @address.suburb %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @address.state %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @address.country %>
-</p>
-
-<p>
-  <strong>Visible:</strong>
-  <%= @address.visible %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @address.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @address.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_address_path(@address) %> |
-<%= link_to 'Back', addresses_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              addresses_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_address_path(@address), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              address_path(@address),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

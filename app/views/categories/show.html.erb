@@ -1,23 +1,19 @@
-<h1>Listing species</h1>
+<%- model_class = Category -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @category.name %></dd>
+</dl>
 
-  <tbody>
-    <% @species.each do |specie| %>
-      <tr>
-        <td><%= specie.name %></td>
-        <td><img class='img-responsive' src="<%= specie.species_images.first.image_url %>" alt="<%= specie.name %>"</td>
-        <td><%= link_to 'Show', specie %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              categories_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_category_path(@category), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              category_path(@category),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

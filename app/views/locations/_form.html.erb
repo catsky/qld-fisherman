@@ -1,16 +1,13 @@
-<%= simple_form_for(@location) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @location, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :address %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <%= f.input :suburb %>
+  <%= f.input :park_name %>
+  <%= f.input :comments %>
+  <%= f.input :popular_species %>
 
-  <div class="form-inputs">
-    <%= f.input :suburb %>
-    <%= f.input :park_name %>
-    <%= f.input :address %>
-    <%= f.input :comments %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                locations_path, :class => 'btn btn-default' %>
 <% end %>
