@@ -1,38 +1,44 @@
-<h1>Listing moments</h1>
-
-<table class='table table-striped'>
+<%- model_class = Moment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Photo</th>
-      <th>User</th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Photos</th>
       <th>Message</th>
       <th>Address</th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @moments.each do |moment| %>
       <tr>
-        <td>
-        <% if moment.photos.first %>
+        <td><%= link_to moment.id, moment_path(moment) %></td>
+        <td> <% if moment.photos.first %>
           <%= responsive_image_tag moment.primary_photo_url(:thumbnail_fit), 'full-width' %>
         <% else %>
           <%= responsive_image_tag '/files/thumbnail_fit/missing.png', 'full-width' %>
-        <% end %>
-        </td>
-        
+        <% end %></td>
         <td><%= moment.try(:message).try(:content) %></td>
         <td><%= moment.try(:address).try(:street) %></td>
-        <td><%= link_to 'Show', moment %></td>
-        <td><%= link_to 'Edit', edit_moment_path(moment) %></td>
-        <td><%= link_to 'Destroy', moment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=distance_of_time_in_words_to_now(moment.created_at) %> ago</td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_moment_path(moment), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      moment_path(moment),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Moment', new_moment_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_moment_path,
+            :class => 'btn btn-primary' %>

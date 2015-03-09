@@ -25,9 +25,11 @@ class AttachablesController < ApplicationController
   # POST /attachables.json
   def create
     return render(status: :not_acceptable) unless params.has_key?(:file)
+    # raise attachable_params.inspect
     @attachable = Attachable.new(file: attachable_params)
     respond_to do |format|
       if @attachable.save
+        # render json: @attachable.to_json and return
         format.html { redirect_to @attachable, notice: 'Attachable created was successfully created.' }
         format.json { render action: 'show', status: :created, location: @attachable }
       else

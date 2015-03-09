@@ -1,19 +1,14 @@
-<%= simple_form_for @moment, defaults: {required: false} do |f| %>
- 
-  <%= f.error_notification %>
+<%= simple_form_for @moment, defaults: {required: false}, html: { class: 'form-horizontal' } do |f| %>
+  <%= f.simple_fields_for :message_attributes do |m|%>
+  <%= m.input :content %>
+  <% end %>
 
-  <div class="form-inputs">
-    <%= f.simple_fields_for :message_attributes do |m|%>
-      <%= m.input :content %>
-    <% end %>
-    
-    <%= f.simple_fields_for :address_attributes do |a| %>
-      <%= a.input :street %>
-    <% end %>
-    
-  </div>
+  <%= f.simple_fields_for :address_attributes do |a| %>
+  <%= a.input :street %>
+  <% end %>
+  
   <%= render "/attachables/form"%>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                moments_path, :class => 'btn btn-default' %>
 <% end %>

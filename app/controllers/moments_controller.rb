@@ -24,8 +24,7 @@ class MomentsController < ApplicationController
   # POST /moments
   # POST /moments.json
   def create
-    @moment = Moment.new(moment_params)
-    
+    @moment = current_user.moments.create(moment_params)
     respond_to do |format|
       if @moment.save
         format.html { redirect_to @moment, notice: 'Moment was successfully created.' }
