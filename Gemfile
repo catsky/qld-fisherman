@@ -14,6 +14,7 @@ end
 
 group :development do
   gem 'capistrano'
+  gem 'rails-footnotes', '~> 4.0'
 end
 
 gem "therubyracer"
